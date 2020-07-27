@@ -1,8 +1,8 @@
 # "JOBS" (temp title)
+
 A tool to help simplify the job hunt process.
 
-
-## Placeholder for setup instructions 
+## Placeholder for setup instructions
 
 * Ruby version
 
@@ -22,9 +22,9 @@ A tool to help simplify the job hunt process.
 
 * ...
 
-
 ## Dev Team
-###### Flatiron School Software Engineering Students | 06/22/2020 Cohort | Module Two Project
+
+Flatiron School Software Engineering Students | 06/22/2020 Cohort | Module Two Project
 
 * Jeff Adler (@Jeff-Adler)
 * Kyle Burda (@kylejb)
