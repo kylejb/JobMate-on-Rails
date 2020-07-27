@@ -26,5 +26,5 @@ A tool to help simplify the job hunt process.
 ## Dev Team
 ###### Flatiron School Software Engineering Students | 06/22/2020 Cohort | Module Two Project
 
-* Jeff Adler Sychev (@Jeff-Adler)
-* Kyle Burda    (@kylejb)
+* Jeff Adler (@Jeff-Adler)
+* Kyle Burda (@kylejb)
