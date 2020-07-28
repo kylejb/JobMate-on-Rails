@@ -1,0 +1,3 @@
+class UserCategoriesController < ApplicationController
+
+end
