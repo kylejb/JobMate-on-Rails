@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # Use mechanize to turn pages with 'nokogiri'
-gem 'mechanize'
+# gem 'mechanize'
 # Use Kimurai for dynamic web scrapping
 gem 'kimurai'
 
