@@ -1,0 +1,2 @@
+class SavedPostingsController < ApplicationController
+end
