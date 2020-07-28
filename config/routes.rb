@@ -14,13 +14,8 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new", as: "signup"
   post '/users', to: 'users#create', as: 'users'
 
-
 # Form-tag to allow user to search for jobs
   get '/search', to: "search#new", as: "new_search"
 # Runs the scraper based on user's search parameters
   post '/search/result', to: "search#result", as: "result_search"
-
-
-  
-  
 end

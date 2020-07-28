@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
 
     helper_method :logged_in?, :current_user
   
@@ -7,9 +8,8 @@ class ApplicationController < ActionController::Base
     end
 
     def authorized
-        redirect_to login_path unless self.logged_in?
+        redirect_to new_session_path unless self.logged_in?
     end
-
 
     private
 
