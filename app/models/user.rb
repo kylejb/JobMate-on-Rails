@@ -5,4 +5,6 @@ class User < ApplicationRecord
     has_many :postings, through: :saved_postings
     has_many :user_categories
     has_many :categories, through: :user_categories
+
+    has_secure_password
 end
