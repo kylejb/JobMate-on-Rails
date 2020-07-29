@@ -24,8 +24,13 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use mechanize to turn pages with 'nokogiri'
 # gem 'mechanize'
+
 # Use Kimurai for dynamic web scrapping
 gem 'kimurai'
+
+# Use Bootstrap for frontend and dependencies:
+gem 'bootstrap'
+gem 'jquery-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
