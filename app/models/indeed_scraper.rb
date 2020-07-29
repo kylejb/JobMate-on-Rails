@@ -65,10 +65,6 @@ class IndeedScraper < Kimurai::Base
         end
         puts "There are #{count} jobs in class variable @@jobs."
     end
-
-    def add_to_db
-        # .create()
-    end
 end
 
 IndeedScraper.crawl!
