@@ -2,7 +2,7 @@
 
 <ul>
 <% @search_results.each do |posting| %>
-    <li><%= link_to posting.title, posting.link %></li>
+    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
 <% end %>
 </ul>
 
