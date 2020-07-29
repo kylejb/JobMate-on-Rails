@@ -1,0 +1,11 @@
+<h3>Search Jobs</h3>
+
+<%= form_tag new_search_path do %>
+  <label>Keyword:</label><br>
+  <input type="text" id="search_keyword" name="search[keyword]"><br>
+ 
+  <label>Location:</label><br>
+  <input type="text" id="search_location" name="search[location]"><br>
+ 
+  <input type="submit" value="Search">
+<% end %>
