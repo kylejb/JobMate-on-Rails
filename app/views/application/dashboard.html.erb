@@ -1,0 +1,21 @@
+<h3>JobMate</h3>
+
+<p>User Actions:</p>
+<ul>
+    <li>Search for jobs: </li>
+    <%= form_tag run_search_path, ({controller: 'searches', action: 'new', method: 'get'}) do %>
+        <input type=submit value= 'Search'>
+    <% end %>
+
+    <li>View/Edit Profile: </li>
+    <%= form_tag user_path(current_user), ({controller: 'users', action: 'show', method: 'get'}) do %>
+        <input type=submit value='Profile'>
+    <% end %>
+
+    <li>Access Saved Postings: </li>
+    <%= form_tag saved_postings_path, ({controller: 'saved_postings', action: 'index', method: 'get'}) do %>
+        <input type=submit value='Postings'>
+    <% end %>
+</ul>
+
+<p>Dashboard: (PLACEHOLDER) </p>
