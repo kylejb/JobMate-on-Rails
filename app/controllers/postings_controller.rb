@@ -1,10 +1,13 @@
 class PostingsController < ApplicationController
 
+    before_action :set_posting, only: [:show]
+
     #displays all postings tied to a specific user
     def index 
     end
 
-    def show  
+    def show 
+        
     end
 
     def destroy  
@@ -21,7 +24,7 @@ class PostingsController < ApplicationController
 
         @search_results = []
         Posting.all.each do |posting|
-            if posting.title.includes?(params[:title]) && posting.location.includes?(params[:location])
+            if posting.title.include?(params[:posting][:title]) # && posting.location.include?(params[:location])
                 @search_results << posting
             end
         end
@@ -32,6 +35,10 @@ class PostingsController < ApplicationController
 
     def postings_params
         params.require(:posting).permit(:title,:location)
+    end
+
+    def set_posting 
+        @posting = Posting.find(params[:id])
     end
     
 end
