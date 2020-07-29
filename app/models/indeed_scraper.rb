@@ -39,6 +39,7 @@ class IndeedScraper < Kimurai::Base
             title = char_element.css('h2 a')[0].attributes["title"].value.gsub(/\n/, "")
             company = description = char_element.css('span.company').text.gsub(/\n/, "")
             link = "https://indeed.com" + char_element.css('h2 a')[0].attributes["href"].value.gsub(/\n/, "")
+
         #   description = char_element.css('div.summary').text.gsub(/\n/, "")
         #   location = char_element.css('div.location').text.gsub(/\n/, "")
         #   salary = char_element.css('div.salarySnippet').css('span.salaryText').text.gsub(/\n/, "")
