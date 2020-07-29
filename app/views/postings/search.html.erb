@@ -1,0 +1,13 @@
+<h3>Search Jobs</h3>
+
+<p>Search through job postings by title and location (spoiler alert: you can narrow your search after this!):</p>
+
+<%= form_tag display_postings_path, method: :get do %>
+  <label>Title:</label><br>
+  <input type="text" id="posting_title" name="posting[title]"><br>
+ 
+  <label>Location:</label><br>
+  <input type="text" id="posting_location" name="posting[location]"><br>
+ 
+  <input type="submit" value="Search">
+<% end %>

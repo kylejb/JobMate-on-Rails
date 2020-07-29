@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   #resources :favorite_companies
   resources :companies, only: [:show, :index]
   resources :saved_postings, only: :index
-  resources :postings, only: [:show, :index, :destroy]
+  resources :postings, only: [:index, :destroy]
   resources :users, except: [:index, :new, :create]
 
   root 'application#dashboard'
@@ -15,6 +15,14 @@ Rails.application.routes.draw do
 
   get '/signup', to: "users#new", as: "signup"
   post '/users', to: 'users#create', as: 'users'
+
+  #Posting.all has all postings. 
+  #When you click 'search', you narrow it by titles and locations that match
+  get '/postings/search', to: "postings#search", as: "search_postings"
+
+  get '/postings/search_results', to: "postings#search_results", as: "display_postings"
+
+
 
 # Form-tag to allow user to search for jobs
   get '/search', to: "searches#new", as: "new_search"

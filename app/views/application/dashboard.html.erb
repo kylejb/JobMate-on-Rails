@@ -3,9 +3,15 @@
 <p>User Actions:</p>
 <ul>
     <li>Search for jobs: </li>
-    <%= form_tag run_search_path, ({controller: 'searches', action: 'new', method: 'get'}) do %>
+    <%= form_tag search_postings_path, ({controller: 'postings', action: 'search', method: 'get'}) do %>
         <input type=submit value= 'Search'>
     <% end %>
+
+    <%= form_tag(search_postings_path, method: :get) do %>
+        <%= submit_tag 'Search' %>
+    <% end %>
+
+    <%= button_to 'Search', search_postings_path, method: :get %>
 
     <li>View/Edit Profile: </li>
     <%= form_tag user_path(current_user), ({controller: 'users', action: 'show', method: 'get'}) do %>
@@ -19,3 +25,8 @@
 </ul>
 
 <p>Dashboard: (PLACEHOLDER) </p>
+
+<p>Logout:</p>
+  <%= form_tag delete_session_path, ({controller: 'sessions', action: 'destroy', method: 'delete'}) do %>
+    <input type=submit value='logout'>
+  <% end %>
