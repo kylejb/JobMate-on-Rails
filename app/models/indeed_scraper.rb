@@ -34,29 +34,34 @@ class IndeedScraper < Kimurai::Base
         returned_jobs = doc.css('td#resultsCol')
         count = 0
         returned_jobs.css('div.jobsearch-SerpJobCard').each do |char_element|
-            #! boolean check for existence in our db before stepping into char_ele
-            # scraping individual listings 
-            title = char_element.css('h2 a')[0].attributes["title"].value.gsub(/\n/, "")
-            company = description = char_element.css('span.company').text.gsub(/\n/, "")
             link = "https://indeed.com" + char_element.css('h2 a')[0].attributes["href"].value.gsub(/\n/, "")
+           
+            # boolean check for existence in our db before stepping into char_ele
+            if !Posting.find_by(link: link)
+                # scraping individual listings 
+                title = char_element.css('h2 a')[0].attributes["title"].value.gsub(/\n/, "")
+                company = description = char_element.css('span.company').text.gsub(/\n/, "")
+                if !Company.find_by(name: company)
+                    Company.create!(name: company)
+                end
+                # click on link and extract description, salary, and location
+                browser.visit(link)
+                job_page = browser.current_response
+                description = job_page.xpath('/html/body/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[5]/div[2]').text
+                # creating a job object
+                job = {title: title, link: link, description: description, company: company} #, location: location, salary: salary, languages: languages, experience: experience, requirements: requirements}
+                Posting.create!(job)
+            end
 
         #   description = char_element.css('div.summary').text.gsub(/\n/, "")
         #   location = char_element.css('div.location').text.gsub(/\n/, "")
         #   salary = char_element.css('div.salarySnippet').css('span.salaryText').text.gsub(/\n/, "")
         #   requirements = char_element.css('div.jobCardReqContainer').text.gsub(/\n/, "")
 
-          # click on link and extract description, salary, and location
-          browser.visit(link)
-          job_page = browser.current_response
-          description = job_page.xpath('/html/body/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[5]/div[2]').text
-         
-          # creating a job object
-          job = {title: title, link: link, description: description, company: company} #, location: location, salary: salary, languages: languages, experience: experience, requirements: requirements}
-        
-          # adding the object if it is unique
-          #! test with byebug to see if include is behaving correctly//'find_by'
-          @@jobs << job if !@@jobs.include?(job)
-          p count += 1
+        # adding the object if it is unique
+        #! test with byebug to see if include is behaving correctly//'find_by'
+        @@jobs << job if !@@jobs.include?(job)
+        p count += 1
         end
         puts "There are #{count} jobs in class variable @@jobs."
     end
