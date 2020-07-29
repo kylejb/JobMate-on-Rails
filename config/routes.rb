@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :postings, only: [:index, :destroy]
   resources :users, except: [:index, :new, :create]
 
-  root 'application#dashboard'
+  root 'home#dashboard'
 
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create', as: 'new_session'
