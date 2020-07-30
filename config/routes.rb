@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :folders
   root 'static_pages#dashboard'
 
   get '/login', to: 'sessions#new', as: 'new_session'

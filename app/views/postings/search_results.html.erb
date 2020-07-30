@@ -1,11 +1,13 @@
 <h3>Search Results</h3>
 
 <ul>
-<% @search_results.each do |posting| %>
+<% @postings_by_keyword.each do |posting| %>
     <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
 <% end %>
 </ul>
 
 <br>Here is a list of jobs other people in your category have found:
 <br>
-
+<% @postings_by_category.first.each do |posting| %> 
+    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+<% end %> 

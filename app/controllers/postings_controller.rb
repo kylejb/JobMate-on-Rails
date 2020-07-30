@@ -21,7 +21,7 @@ class PostingsController < ApplicationController
     #this method will render a form that displays the results of a job search query. 
     #It will receive the params from #search
     def search_results 
-        @search_results = Posting.postings_by_keyword(params[:posting][:title])
+        @postings_by_keyword = Posting.postings_by_keyword(params[:posting][:title])
 
         @postings_by_category = Posting.postings_by_category(current_user)
     end
