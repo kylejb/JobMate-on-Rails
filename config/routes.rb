@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   #When you click 'search', you narrow it by titles and locations that match
   get '/postings/search', to: "postings#search", as: "search_postings"
   get '/postings/search/results', to: "postings#search_results" , as: "display_postings"
-
+  post 'postings/search/reset', to: "postings#restart_search", as: "restart_search"
 
   resources :user_categories, only: :index
   resources :categories, only: [:show, :index]

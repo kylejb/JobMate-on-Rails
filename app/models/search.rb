@@ -1,10 +1,16 @@
 class Search 
     
-    attr_accessor :keyword, :location
+     @@log = []
 
-   def initialize(search_params)
-        @keyword = search_params[:keyword]
-        @location = search_params[:location]
-   end
+     def self.log
+          @@log
+     end
 
+     def self.reset_log
+          @@log = []
+     end
+
+     def self.add_log(keyword)
+          @@log << keyword
+     end
 end

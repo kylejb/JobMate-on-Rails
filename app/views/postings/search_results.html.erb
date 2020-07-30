@@ -1,12 +1,21 @@
 <h3>Search Results</h3>
 
+<%= @log %>
+
 <ul>
 <% @postings_by_keyword.each do |posting| %>
     <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
 <% end %>
 </ul>
 
-<br>Here is a list of jobs other people in your category have found:
+<br>Add additional filters?<br>
+<%= render 'search' %>
+
+<br>Reset Search?<br>
+<%= button_to 'Reset Search', restart_search_path, method: :post %>
+
+<br>
+Here is a list of jobs other people in your category have found:
 <br>
 <% @postings_by_category.first.each do |posting| %> 
     <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
