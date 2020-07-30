@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new", as: "signup"
   post '/users', to: 'users#create', as: 'users'
 
+  #this path lets a user add/edit categories
+  get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
+  post '/categories/set', to: "user_categories#set_categories"
+
   #Posting.all has all postings. 
   #When you click 'search', you narrow it by titles and locations that match
   get '/postings/search', to: "postings#search", as: "search_postings"

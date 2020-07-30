@@ -3,25 +3,16 @@
 <p>User Actions:</p>
 <ul>
     <li>Search for jobs: </li>
-    <%= form_tag search_postings_path, ({controller: 'postings', action: 'search', method: 'get'}) do %>
-        <input type=submit value= 'Search'>
-    <% end %>
 
-    <%= form_tag(search_postings_path, method: :get) do %>
-        <%= submit_tag 'Search' %>
-    <% end %>
-
-    <%= button_to 'Search', search_postings_path, method: :get %>
+        <%= button_to 'Search', search_postings_path, method: :get %>
 
     <li>View/Edit Profile: </li>
-    <%= form_tag user_path(current_user), ({controller: 'users', action: 'show', method: 'get'}) do %>
-        <input type=submit value='Profile'>
-    <% end %>
+
+        <%= button_to 'Profile', user_path(current_user), method: :get %>
 
     <li>Access Saved Postings: </li>
-    <%= form_tag saved_postings_path, ({controller: 'saved_postings', action: 'index', method: 'get'}) do %>
-        <input type=submit value='Postings'>
-    <% end %>
+
+        <%= button_to 'Postings', saved_postings_path, method: :get %>
 </ul>
 
 <p>Dashboard: (PLACEHOLDER) </p>
