@@ -1,8 +1,1 @@
-<h3>Login Page</h3>
-
 <%= render 'form' %>
-<br>
-Make new account:<br>
- <%= form_tag signup_path, ({controller: 'users', action: 'new', method: 'get'}) do %>
-        <input type=submit value='New User'>
-<% end %>

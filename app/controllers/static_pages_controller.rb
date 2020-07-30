@@ -1,4 +1,4 @@
-class HomeController < ApplicationController
+class StaticPagesController < ApplicationController
 
     before_action :authorized, only: :dashboard
     
