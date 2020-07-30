@@ -29,7 +29,7 @@ class Posting < ApplicationRecord
         postings_by_category << user.postings
       end
     end
-
+    
     postings_by_category
   end
 
