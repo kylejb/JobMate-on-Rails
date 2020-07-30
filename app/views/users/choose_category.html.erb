@@ -1,0 +1,8 @@
+<h3> Category </h3>
+
+<p><%=@message%></p>
+
+<%= form_for @user, url: set_category_path do |f| %>
+  <%= f.collection_select :category_id, Category.all, :id, :title %>
+  <%= f.submit %>
+<% end %>

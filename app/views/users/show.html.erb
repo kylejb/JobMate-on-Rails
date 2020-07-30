@@ -1,12 +1,11 @@
 <h3><%="#{current_user.username}"%></h3>
 
-
     Change Username/Password:
     <%= button_to 'Edit User Information', edit_user_path, method: :get %>
     <br>
 
-    View/Edit Favorite Job Categories:
-    <%= button_to 'Job Categories', choose_categories_path, method: :get %>
+    View/Edit Category:
+    <%= button_to 'Category', choose_category_path, method: :get %>
     <br>
 
     <p>View/Edit Favorite Companies</p>
