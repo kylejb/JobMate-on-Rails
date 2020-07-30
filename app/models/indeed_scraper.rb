@@ -2,7 +2,9 @@ require 'kimurai'
 
 class IndeedScraper < Kimurai::Base
 
+    # Future feature: allow dynamic passing of search queries
     BASE_URL = "https://www.indeed.com/jobs?q="
+    # For BASE_QUERY, at minimum we could create a custom method to replace '+' with ' '.
     BASE_QUERY = "software+engineer"
     BASE_LOCATION = "&l=New+York%2C+NY"
     BASE_SORT = "&sort=date&fromage=14"
@@ -55,7 +57,7 @@ class IndeedScraper < Kimurai::Base
                 
                 # parse out years of experience from description for persistence in separate column
                 experience = years_in_description(description)
-                
+
                 ## creating a job object
                 # refactor with mass_assignment
                 # job = {title: title, link: link, description: description, company: company_obj} #, location: location, salary: salary, languages: languages, experience: experience, requirements: requirements}
