@@ -3,8 +3,8 @@ class Posting < ApplicationRecord
   has_many :saved_postings
   has_many :users, through: :saved_postings
 
-  #attr_reader :url
-
+  # Posting.where("description like ?", "%#{years}%").count
+  
   # persist unique records of job postings
   validates_uniqueness_of :link
 
@@ -31,5 +31,10 @@ class Posting < ApplicationRecord
     end
 
     postings_by_category
+  end
+
+  # helper method to parse through description column and return experience value
+  def extract_experience
+    description.match(/[\d ()+]+(?:^|\W)years(?:$|\W)/)
   end
 end
