@@ -1,18 +1,18 @@
-# require 'open-uri'
-# require 'nokogiri'
-# require 'mechanize'
 require 'kimurai'
 
 class IndeedScraper < Kimurai::Base
+
+    # Future feature: allow dynamic passing of search queries
+    BASE_URL = "https://www.indeed.com/jobs?q="
+    # For BASE_QUERY, at minimum we could create a custom method to replace '+' with ' '.
+    BASE_QUERY = "software+engineer"
+    BASE_LOCATION = "&l=New+York%2C+NY"
+    BASE_SORT = "&sort=date&fromage=14"
+
+
     @name = 'ind_job_scraper'
-    @start_urls = ["https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY&sort=date&fromage=14"]
+    @start_urls = [BASE_URL+BASE_QUERY+BASE_LOCATION+BASE_SORT]
     @engine = :selenium_chrome
-
-    # @@jobs = []
-
-    # def self.all
-    #     @@jobs
-    # end
 
     def parse(response, url:, data: {})
         # scrape first page
@@ -23,10 +23,10 @@ class IndeedScraper < Kimurai::Base
        # TODO - make this run until end
        2.times do
            browser.visit("https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY&sort=date&fromage=14&start=#{num}0")
+           puts "Parsing jobs on page number: #{num}"
            scrape_page
            num += 1
        end
-    #    @@jobs
     end
 
     def scrape_page
@@ -54,26 +54,27 @@ class IndeedScraper < Kimurai::Base
                 if description == ""
                     description = job_page.xpath('/html/body/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[6]/div[2]').text
                 end
+                
+                # parse out years of experience from description for persistence in separate column
+                experience = years_in_description(description)
+
                 ## creating a job object
                 # refactor with mass_assignment
                 # job = {title: title, link: link, description: description, company: company_obj} #, location: location, salary: salary, languages: languages, experience: experience, requirements: requirements}
-                Posting.create(title: title, link: link, description: description, company: company_obj)
-            end
-
-        #   description = char_element.css('div.summary').text.gsub(/\n/, "")
-        #   location = char_element.css('div.location').text.gsub(/\n/, "")
-        #   salary = char_element.css('div.salarySnippet').css('span.salaryText').text.gsub(/\n/, "")
-        #   requirements = char_element.css('div.jobCardReqContainer').text.gsub(/\n/, "")
-
-        # adding the object if it is unique
-        # @@jobs << job if !@@jobs.include?(job)
+                Posting.create(title: title, link: link, description: description, company: company_obj, experience: experience)
+            end       
         p count += 1
         end
-        puts "There are #{count} jobs."
+        puts "I have read #{count} jobs on this page"
+    end
+
+    # helper method to parse description string
+    def years_in_description(description)
+        description.match(/[\d ()+]+(?:^|\W)years(?:$|\W)/)
     end
 end
 
 IndeedScraper.crawl!
 
 
-# Thanks to https://www.scrapingbee.com/blog/web-scraping-ruby/#kimurai-setup
+# Special thanks to 'https://www.scrapingbee.com/blog/web-scraping-ruby/#kimurai-setup' for code/guidance.

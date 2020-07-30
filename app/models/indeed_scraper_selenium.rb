@@ -1,7 +1,6 @@
 require 'selenium-webdriver'
 # require 'webdriver-user-agent'
 
-
 def rescue_exceptions
     begin
       yield
