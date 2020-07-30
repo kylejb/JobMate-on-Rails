@@ -33,7 +33,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 
 # Use Font Awesome Less to add fonts to css stylesheets
-gem 'font-awesome-less'
+#gem 'font-awesome-less'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
