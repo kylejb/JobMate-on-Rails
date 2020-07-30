@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  resources :user_categories, only: :index
-  resources :categories, only: [:show, :index]
-  #resources :favorite_companies
-  resources :companies, only: [:show, :index]
-  resources :saved_postings, only: [:index]
-  resources :postings, only: [:index, :destroy]
-  resources :users, except: [:index, :new, :create]
-
+  
   root 'static_pages#dashboard'
 
   get '/login', to: 'sessions#new', as: 'new_session'
@@ -16,21 +9,19 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new', as: 'new_user'
   post '/signup', to: 'users#create'
 
-
-  #! Let's clean these routes below and decide which controllers to keep (as well, as do a wholistic review of our routes above in light of changess)
+  #this path lets a user add/edit categories
+  get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
+  post '/categories/set', to: "user_categories#set_categories"
 
   #Posting.all has all postings. 
   #When you click 'search', you narrow it by titles and locations that match
-  get '/postings/search', to: 'postings#search', as: 'search_postings'
+  get '/postings/search', to: "postings#search", as: "search_postings"
 
-  get '/postings/search_results', to: 'postings#search_results', as: 'display_postings'
 
-# Form-tag to allow user to search for jobs
-  get '/search/new', to: 'searches#new', as: 'new_search'
-
-# Runs the scraper based on user's search parameters
-  get '/search/result', to: 'searches#show', as: 'show_search'
-  post '/search/result', to: 'searches#create'
-
-  
+  resources :user_categories, only: :index
+  resources :categories, only: [:show, :index]
+  resources :companies, only: [:show, :index]
+  resources :saved_postings, only: [:show, :index, :create]
+  resources :postings, only: [:index, :show, :destroy]
+  resources :users, except: [:index, :new, :create]
 end

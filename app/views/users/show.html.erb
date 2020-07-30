@@ -1,22 +1,17 @@
 <h3><%="#{current_user.username}"%></h3>
 
 
-    <p>Change Username/Password</p>
-    <%= form_tag edit_user_path, ({controller: 'users', action: 'edit', method: 'get'}) do %>
-        <input type=submit value='Edit User Credentials'>
-    <% end %>
+    Change Username/Password:
+    <%= button_to 'Edit User Information', edit_user_path, method: :get %>
+    <br>
 
-    <p>View/Edit Favorite Job Categories</p>
-    <%= form_tag user_categories_path, ({controller: 'user_categories', action: 'index', method: 'get'}) do %>
-        <input type=submit value='Job Categories'>
-    <% end %>
+    View/Edit Favorite Job Categories:
+    <%= button_to 'Job Categories', choose_categories_path, method: :get %>
+    <br>
 
     <p>View/Edit Favorite Companies</p>
-    <%= form_tag companies_path, ({controller: 'companies', action: 'index', method: 'get'}) do %>
-        <input type=submit value='Companies'>
-    <% end %>
+    <%= button_to 'Favorite Companies', companies_path, method: :get %>
     <br>
-    <p>Return to home page</p>
-     <%= form_tag root_path, ({controller: 'application', action: 'dashboard', method: 'get'}) do %>
-        <input type=submit value='Return Home'>
-<% end %>
+
+    Return to home page:
+    <%= button_to 'Homepage', root_path, method: :get %>

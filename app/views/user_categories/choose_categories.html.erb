@@ -1,0 +1,13 @@
+<h3> Choose Categories </h3>
+
+<%= form_for @user_category do |f| %>
+  <input name="category[post_ids][]">
+  <input name="category[post_ids][]">
+  <input name="category[post_ids][]">
+  <input type="submit" value="Submit">
+<% end %>
+
+<%= form_for @user_category do |f| %>
+  <%= f.collection_select :category_id, Category.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

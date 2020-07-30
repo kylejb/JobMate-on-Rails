@@ -1,0 +1,5 @@
+<h3>Saved Posting's </h3>
+
+<% @postings.each do |posting| %>
+    <%= link_to posting.title, posting_path(posting), target: '_blank'  %><br>
+<% end %>

@@ -1,1 +1,16 @@
-# job = {title: title, link: link, description: description, company: company_obj} #, location: location, salary: salary, languages: languages, experience: experience, requirements: requirements}
+<h3>Posting</h3>
+
+<%= link_to @posting.title, @posting.link, target: '_blank'  %><br><br>
+
+Description: <%= @posting.description %><br>
+<br>
+Company: <%= @posting.company.name %><br>
+Location: <%= @posting.location%><br>
+Salary: <%= @posting.salary%><br>
+Languages: <%= @posting.languages%><br>
+Experience: <%= @posting.experience%><br>
+Requirements: <%= @posting.requirements%><br>
+
+
+<%= button_to saved_postings_path, {:controller => "saved_postings", :action => "create", :id => @posting.id} , :method=>:post%>
+
