@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'delete_session'
 
   get '/signup', to: 'users#new', as: 'new_user'
-  post '/signup/submitted', to: 'users#create', as: 'create_user'
-  #get '/users/:id', to: 'users#show', as: 'user'
+  post '/signup', to: 'users#create'
 
   #this path lets a user add/edit categories
   # get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
