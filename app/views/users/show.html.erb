@@ -1,4 +1,4 @@
-<h3><%="#{@_current_user.username}"%></h3>
+<h3><%="#{current_user.username}"%></h3>
 
 
     <p>Change Username/Password</p>
@@ -19,4 +19,4 @@
     <p>Return to home page</p>
      <%= form_tag root_path, ({controller: 'application', action: 'dashboard', method: 'get'}) do %>
         <input type=submit value='Return Home'>
-    <% end %>
+<% end %>

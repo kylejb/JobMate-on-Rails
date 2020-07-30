@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :postings, only: [:index, :destroy]
   resources :users, except: [:index, :new, :create]
 
-  root 'home#dashboard'
+  root 'static_pages#dashboard'
 
   get '/login', to: 'sessions#new', as: 'new_session'
   post '/login', to: 'sessions#create'
@@ -15,6 +15,9 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: 'new_user'
   post '/signup', to: 'users#create'
+
+
+  #! Let's clean these routes below and decide which controllers to keep (as well, as do a wholistic review of our routes above in light of changess)
 
   #Posting.all has all postings. 
   #When you click 'search', you narrow it by titles and locations that match

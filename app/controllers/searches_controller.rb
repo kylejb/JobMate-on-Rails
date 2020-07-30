@@ -12,9 +12,9 @@ class SearchesController < ApplicationController
     end
 
     def show 
-        IndeedScraper
-        @jobs = IndeedScraper.all
-  
+        #! no longer valid 
+        # IndeedScraper
+        # @jobs = IndeedScraper.all
     end
 
     private
