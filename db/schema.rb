@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_151927) do
+ActiveRecord::Schema.define(version: 2020_07_30_170922) do
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_151927) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_users_on_category_id"
   end
 
   add_foreign_key "favorite_companies", "companies"
@@ -82,4 +84,5 @@ ActiveRecord::Schema.define(version: 2020_07_29_151927) do
   add_foreign_key "saved_postings", "users"
   add_foreign_key "user_categories", "categories"
   add_foreign_key "user_categories", "users"
+  add_foreign_key "users", "categories"
 end

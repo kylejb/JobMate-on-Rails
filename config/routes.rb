@@ -7,15 +7,18 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: 'delete_session'
 
   get '/signup', to: 'users#new', as: 'new_user'
-  post '/signup', to: 'users#create'
+  post '/signup/submitted', to: 'users#create', as: 'create_user'
+  #get '/users/:id', to: 'users#show', as: 'user'
 
   #this path lets a user add/edit categories
-  get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
-  post '/categories/set', to: "user_categories#set_categories"
+  # get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
+  get '/category/choose', to: "users#choose_category", as: "choose_category"
+  patch '/category/set', to: "users#assign_category", as: "set_category"
 
   #Posting.all has all postings. 
   #When you click 'search', you narrow it by titles and locations that match
   get '/postings/search', to: "postings#search", as: "search_postings"
+  get '/postings/search/results', to: "postings#search_results" , as: "display_postings"
 
 
   resources :user_categories, only: :index

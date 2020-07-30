@@ -42,9 +42,23 @@ class UsersController < ApplicationController
         redirect_to new_session_path
     end
 
+    def choose_category
+        @user = current_user
+        @message = current_user.category_message
+    end
+
+    def assign_category
+        current_user.update(user_category_params)
+        redirect_to user_path(current_user)
+    end
+
     private
 
     def user_params 
         params.require(:user).permit(:username,:password,:password_confirmation)
+    end
+
+    def user_category_params
+        params.require(:user).permit(:category_id)
     end
 end
