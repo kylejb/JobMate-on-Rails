@@ -1,11 +1,20 @@
-<%= form_for(:session, url: new_session_path) do |f| %>
+<%= form_with scope: :session, url: new_session_path, class: "form-signin" do |f| %>
 
-<%= f.label :username %>
-<%= f.text_field :username %> <br>
-<%= f.label :password %>
-<%= f.password_field :password %> <br>
-<%= f.label :password_confirmation %>
-<%= f.password_field :password_confirmation %> <br>
-<%= f.submit "Log in" %>
+    <div class="form-label-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, placeholder: "Username", class: "form-control", autofocus: true, required: true %> 
+    </div>
+
+    <div class="form-label-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Password", class: "form-control", required: true %>
+    </div>
+
+    <div class="form-label-group">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, placeholder: "Confirm Password", class: "form-control", required: true%>
+    </div>
+
+    <%= f.submit "Log in", :class => "btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"%>
 
 <% end %>
