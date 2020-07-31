@@ -7,10 +7,9 @@ class UsersController < ApplicationController
     end
 
     def create 
-
         @user = User.new(user_params)
-        #This is a hard-coded value because foreign_key for category_id is required for validation
-        @user.category_id = 3
+        # This is a hard-coded value because foreign_key for category_id is required for validation
+        # @user.category_id = 3
         if @user.valid?
             @user.save
             session[:current_user_id] = @user.id
@@ -30,9 +29,11 @@ class UsersController < ApplicationController
     end
 
     def update 
-        current_user.update(user_params) ? "Success" : flash[:error] = current_user.errors.full_messages
-        
-        redirect_to user_path(current_user)
+        if current_user.update(user_params) 
+            redirect_to user_path(current_user), success: "Profile was updated successfully"
+        else
+            redirect_to user_path(current_user), error: current_user.errors.full_messages
+        end
     end
 
     def destroy 
