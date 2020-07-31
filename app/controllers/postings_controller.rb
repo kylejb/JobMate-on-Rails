@@ -12,7 +12,7 @@ class PostingsController < ApplicationController
 
     #this method will render a form that allows a user to search
     def search
-        render 'search'
+        @postings_by_category = Posting.postings_by_category(current_user)
     end
 
     #this method will render a form that displays the results of a job search query. 
@@ -40,6 +40,13 @@ class PostingsController < ApplicationController
 
     def restart_search
         redirect_to search_postings_path
+    end
+
+    # DEMO FEATURE
+    def demo
+        demo_apply = IndeedWorker.new
+        demo_apply.run(set_posting.link)
+        
     end
 
     private

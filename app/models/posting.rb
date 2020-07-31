@@ -64,7 +64,7 @@ class Posting < ApplicationRecord
     postings_by_category = []
 
     User.all.each do |user|
-      if current_user.category != nil && user.category == current_user.category
+      if current_user.category != nil && user.category == current_user.category && current_user != user
         postings_by_category << user.postings
       end
     end
