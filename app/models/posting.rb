@@ -73,12 +73,43 @@ class Posting < ApplicationRecord
     search_reduced_query(keyword)
   end
 
-  # def self.filter_by_experience(experience)
-  #   current_query.each do |posting|
+  # keyword --> keyword
+  # keyword --> years
+  # years --> keyword
 
-  #     if posting.experience.chomp == experience_keyword
-  #   end
-  # end
+  def self.filter_by_experience(query_experience)
+    arr = current_query.select do |posting| 
+       if !(posting.experience == "") && !(posting.experience == nil)
+          case query_experience
+          when years_experience[0]
+            if convert_years_to_integer(posting) <= 2
+              posting
+            end
+          when years_experience[1]
+            if convert_years_to_integer(posting) > 2 && convert_years_to_integer(posting) <= 4
+              posting
+            end
+          when years_experience[2]
+            if convert_years_to_integer(posting) > 4 && convert_years_to_integer(posting) <= 6
+              posting
+            end
+          when years_experience[3]
+            if convert_years_to_integer(posting) > 6 && convert_years_to_integer(posting) <= 10
+              posting
+            end
+          when years_experience[4]
+            if convert_years_to_integer(posting) >= 10
+              posting
+            end
+          end
+        end
+    end
+    self.current_query = arr
+  end
+
+  def self.convert_years_to_integer(posting_experience) #posting_years
+    posting_experience.experience.split.first.to_i
+  end
 
   def self.filter_by_company
 

@@ -29,6 +29,10 @@ class PostingsController < ApplicationController
 
     def search_by_experience
 
+        @postings_by_reduced_query = Posting.filter_by_experience(params[:years_of_experience])
+
+        @years_experience = Posting.years_experience
+
         render 'search_results'
     end
 
