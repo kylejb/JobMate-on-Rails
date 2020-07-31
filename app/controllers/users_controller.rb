@@ -49,7 +49,12 @@ class UsersController < ApplicationController
     end
 
     def assign_category
-        current_user.update(user_category_params)
+        # current_user.category_id = user_category_params[:category_id]
+        # current_user.save
+
+        current_user.update_attribute(:category, Category.find(user_category_params[:category_id]))
+
+       # current_user.category = Category.find(user_category_params[:category_id])
         redirect_to user_path(current_user)
     end
 

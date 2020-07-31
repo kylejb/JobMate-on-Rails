@@ -20,4 +20,9 @@ class User < ApplicationRecord
         end 
         message
     end
+
+    # def category=(category_id)
+    #     self.category_id = Category.find(category_id)
+    #     self.save
+    # end
 end
