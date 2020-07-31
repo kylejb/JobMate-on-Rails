@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             session[:current_user_id] = @user.id
-            redirect_to user_path(@user)
+            redirect_to root_path
         else
             # add flash failure
             redirect_to new_user_path
