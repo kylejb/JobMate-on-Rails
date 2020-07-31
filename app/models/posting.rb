@@ -26,22 +26,23 @@ class Posting < ApplicationRecord
     @@current_query
   end
 
-  def self.reset_current_query
-    # @@current_query.clear
-    # @@current_query = []
+  def self.current_query=(query)
+    @@current_query = query
+  end
 
+  def self.reset_current_query
     @@current_query = Posting.all
   end
 
   def self.search_reduced_query(keyword)    
     keyword = keyword.downcase
     search_results = []
-      @@current_query.each do |posting|
-        if posting.title.downcase.include?(keyword) ||  posting.description.downcase.include?(keyword) 
+      current_query.each do |posting|
+        if posting.title.downcase.include?(keyword) || posting.description.downcase.include?(keyword) 
           search_results << posting
         end
       end
-    current_query = search_results
+    self.current_query = search_results
   end
 
   def self.postings_by_keyword(keyword) #(params[:posting][:keyword])
@@ -69,7 +70,7 @@ class Posting < ApplicationRecord
   end
 
   def self.filter_by_additional_keywords(keyword) #(params[:posting][:keyword])
-    self.search_reduced_query(keyword)
+    search_reduced_query(keyword)
   end
 
   # def self.filter_by_experience(experience)

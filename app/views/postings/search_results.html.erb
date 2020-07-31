@@ -3,7 +3,7 @@
 <%= @log %>
 
     <ul>
-    <% @postings_by_keyword.each do |posting| %>
+    <% @postings_by_reduced_query.each do |posting| %>
         <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
     <% end %>
     </ul>
@@ -27,6 +27,8 @@
 <br>
 Here is a list of jobs other people in your category have found:
 <br>
-<% @postings_by_category.first.each do |posting| %> 
-    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
-<% end %> 
+<% if !@postings_by_category.flatten.empty? %>
+    <% @postings_by_category.first.each do |posting| %> 
+        <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+    <% end %> 
+<% end %>
