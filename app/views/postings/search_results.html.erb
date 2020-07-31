@@ -1,13 +1,32 @@
 <h3>Search Results</h3>
 
-<ul>
-<% @postings_by_keyword.each do |posting| %>
-    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
-<% end %>
-</ul>
+<%= @log %>
+    <ul>
+    <% @postings_by_reduced_query.each do |posting| %>
+        <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+    <% end %>
+    </ul>
 
-<br>Here is a list of jobs other people in your category have found:
+
+<br>Add additional filters?<br>
+<%= render 'search' %>
+
+<br>Search by years of experience?<br>
+<% %>
+<%= form_tag experience_search_path, method: :get do %>
+    <%= select_tag "years_of_experience", options_for_select(@years_experience.each_with_index{|x,i|[i,x]}) %>
+    <%= submit_tag "Search" %>
+<% end %>
+
 <br>
-<% @postings_by_category.first.each do |posting| %> 
-    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
-<% end %> 
+<br>Reset Search?<br>
+<%= button_to 'Reset Search', restart_search_path, method: :post %>
+
+<br>
+Here is a list of jobs other people in your category have found:
+<br>
+<% if !@postings_by_category == nil || !@postings_by_category == [] %>
+    <% @postings_by_category.first.each do |posting| %> 
+        <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+    <% end %> 
+<% end %>

@@ -1,0 +1,10 @@
+<h3>Search Jobs</h3>
+
+<p>Search through job postings by keyword (spoiler alert: you can narrow your search after this!):</p>
+
+<%= form_tag display_postings_path, method: :get do %>
+  <label>Search:</label><br>
+  <input type="text" id="search" name="posting[keyword]"><br>
+  
+  <input type="submit" value="Search">
+<% end %>
