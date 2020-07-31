@@ -12,3 +12,5 @@ Experience: <%= @posting.experience%><br>
 Requirements: <%= @posting.requirements%><br>
 
 <%= button_to saved_postings_path, {:controller => "saved_postings", :action => "create", :id => @posting.id}, :method=>:post%>
+
+<%= button_to "DEMO", posting_demo_path %>

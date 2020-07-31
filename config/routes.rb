@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   resources :users, except: [:index, :new, :update, :create]
 
   # Showcase beta feature
-
   get '/demo', to: 'static_pages#demo', as: 'start_demo'
+  # Beta Feature Implementation (pre-bulk-apply)
+  post '/postings/:id/demo', to: 'postings#demo', as: 'posting_demo'
 end
