@@ -22,7 +22,6 @@ class IndeedWorker
 
     # form url that will be passed
     apply_urls = [urls]
-    byebug
     # TODO- can this help web scraping tool to get us more data?
 
     begin
