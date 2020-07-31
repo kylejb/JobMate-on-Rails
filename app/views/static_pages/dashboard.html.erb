@@ -1,14 +1,14 @@
-<h1 class="font-weight-light">Dashboard</h1>
+<h1 class="font-weight-light">JobMate</h1>
+<br>
+<h3>Search for jobs:</h3><br>
 
-  <p>User Actions:</p>
-  <ul>
-      <li>Search for jobs: </li>
+<%= button_to 'Search', search_postings_path, method: :get %>
 
-        <%= button_to 'Search', search_postings_path, method: :get %>
-
-  </ul>
-
-<p>Dashboard: (PLACEHOLDER) </p>
+<br>
 
 
+<h3>Dashboard: </h3>
+<div>
+<%= render 'stats' %>
+</div>
 

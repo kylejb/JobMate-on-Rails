@@ -1,0 +1,27 @@
+<b># of postings in the database:</b> <%=@total_posting_count%><br><br>
+
+<b>Postings by years of experience:</b><br>
+<ul>
+<% @postings_experience_count.each do |k,v| %><br>
+    <li><%= "#{k}#{v}" %></li>
+<% end %>
+</ul>
+
+<b># of postings that don't list experience :</b> <%=@postings_no_experience_listed_count%><br>
+<br>
+
+<b>Postings by job type:</b><br>
+<ul>
+<% @postings_job_category_count.each do |k,v| %><br>
+    <li><%= "#{k}: #{v}" %></li>
+<% end %>
+</ul><br>
+
+<b>Postings by languages:</b><br>
+<ul>
+<% @postings_languages_count.each do |k,v| %><br>
+    <li><%= "#{k}: #{v}" %></li>
+<% end %>
+</ul><br>
+
+ 
