@@ -20,4 +20,9 @@ class StaticPagesController < ApplicationController
 
     end
 
+    def demo
+        apply_demo = IndeedWorker.new
+        apply_demo.run
+    end
+
 end

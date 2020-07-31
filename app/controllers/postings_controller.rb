@@ -42,6 +42,13 @@ class PostingsController < ApplicationController
         redirect_to search_postings_path
     end
 
+    # DEMO FEATURE
+    def demo
+        demo_apply = IndeedWorker.new
+        demo_apply.run(set_posting.link)
+        
+    end
+
     private
 
     def postings_params
