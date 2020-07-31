@@ -1,4 +1,4 @@
-User.destroy_all
+#User.destroy_all
 
 # Random User Creation with Random Category to demo our recommendation feature
 (1..60).each do |i|

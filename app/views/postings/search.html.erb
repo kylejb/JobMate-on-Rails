@@ -1,1 +1,10 @@
 <%= render 'search' %>
+
+<br>
+<br>
+<% if !@postings_by_category == nil || !@postings_by_category == [] %>
+Here is a list of jobs people with similar interestes have found:
+    <% @postings_by_category.first.each do |posting| %> 
+        <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+    <% end %> 
+<% end %>
