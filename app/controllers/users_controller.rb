@@ -30,11 +30,9 @@ class UsersController < ApplicationController
     end
 
     def update 
-        # FYI -  application_controller.rb contains #=> add_flash_type :info, :error, :warning
-        # replace redirects with                           flash_success : flash_failure
-        #current_user.update(user_params) ? redirect_to user_path(@user) : redirect_to user_path(@user)
+        current_user.update(user_params) ? "Success" : flash[:error] = current_user.errors.full_messages
         
-        # redirect_to user_path(@user), with flash
+        redirect_to user_path(current_user)
     end
 
     def destroy 

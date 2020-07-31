@@ -40,14 +40,14 @@
         <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Click Me!
+          <%= current_user.username %>
         </a>
           <!-- Here's the magic. Add the .animate and .slide-in classes to your .dropdown-menu and you're all set! -->
           <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Postings</a>
+            <a class="dropdown-item" href="#">Profile</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <%= link_to "Sign Out", delete_session_path, class: "dropdown-item", method: :delete %>
           </div>
         </li>
       </ul>
@@ -73,5 +73,6 @@
 </div>
 
     <%= yield %>
+
   </body>
 </html>
