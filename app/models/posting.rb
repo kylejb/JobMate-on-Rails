@@ -18,6 +18,10 @@ class Posting < ApplicationRecord
     "10+ years"
   ]
 
+  def self.years_experience
+    YEARS_EXPERIENCE
+  end
+
   def self.current_query
     @@current_query
   end
@@ -68,12 +72,12 @@ class Posting < ApplicationRecord
     self.search_reduced_query(keyword)
   end
 
-  def self.filter_by_experience(experience)
-    current_query.each do |posting|
+  # def self.filter_by_experience(experience)
+  #   current_query.each do |posting|
 
-      if posting.experience.chomp == experience_keyword
-    end
-  end
+  #     if posting.experience.chomp == experience_keyword
+  #   end
+  # end
 
   def self.filter_by_company
 

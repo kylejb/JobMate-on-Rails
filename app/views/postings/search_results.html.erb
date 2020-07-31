@@ -2,15 +2,25 @@
 
 <%= @log %>
 
-<ul>
-<% @postings_by_keyword.each do |posting| %>
-    <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
-<% end %>
-</ul>
+    <ul>
+    <% @postings_by_keyword.each do |posting| %>
+        <li><%= link_to posting.title, posting_path(posting), target: '_blank'  %></li>
+    <% end %>
+    </ul>
+<%#if @postings_by_keyword %>
+<%# end %>
+
 
 <br>Add additional filters?<br>
 <%= render 'search' %>
 
+<br>Search by years of experience?<br>
+<%= form_tag experience_search_path, method: :get do %>
+    <%= select_tag "Years of Experience", options_for_select(@years_experience.each_with_index{|x,i|[i,x]}) %>
+    <%= submit_tag "Search" %>
+<% end %>
+
+<br>
 <br>Reset Search?<br>
 <%= button_to 'Reset Search', restart_search_path, method: :post %>
 
