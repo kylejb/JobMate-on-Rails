@@ -32,6 +32,8 @@ gem 'kimurai'
 gem 'bootstrap'
 gem 'jquery-rails'
 
+# Used to generate sample User data in db:seed 
+gem 'faker'
 # Use Font Awesome Less to add fonts to css stylesheets
 # gem 'font-awesome-less'
 
