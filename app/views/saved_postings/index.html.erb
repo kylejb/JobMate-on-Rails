@@ -1,5 +1,11 @@
-<h3>Saved Posting's </h3>
+<h1 class="font-weight-light">Saved Postings</h1>
 
-<% @postings.each do |posting| %>
+<p>My saves:</p>
+<ul>
+    <% @postings.each do |posting| %>
     <%= link_to posting.title, posting_path(posting), target: '_blank'  %><br>
-<% end %>
+    <% end %>
+    <br><br>
+
+</ul>
+<p><%= button_to 'Search for more jobs', search_postings_path, method: :get %></p>

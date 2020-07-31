@@ -30,9 +30,16 @@ class UsersController < ApplicationController
     end
 
     def update 
-        current_user.update(user_params) ? "Success" : flash[:error] = current_user.errors.full_messages
-        
-        redirect_to user_path(current_user)
+        byebug
+        # temp fix
+        user_params
+
+        if current_user.update(user_params) 
+            
+            redirect_to user_path(current_user), success: "Profile was updated successfully"
+        else
+            redirect_to user_path(current_user), error: current_user.errors.full_messages
+        end
     end
 
     def destroy 

@@ -1,3 +1,17 @@
+<h1 class="font-weight-light">Search Jobs</h1>
+
+<p>User Actions:</p>
+<ul>
+    <li>Search for jobs: </li>
+    
+
+    <%= button_to 'Search', search_postings_path, method: :get %>
+
+</ul>
+
+<p>Dashboard: (PLACEHOLDER) </p>
+
+
 <h3>Posting</h3>
 
 <%= link_to @posting.title, @posting.link, target: '_blank'  %><br><br>
@@ -13,4 +27,3 @@ Requirements: <%= @posting.requirements%><br>
 
 
 <%= button_to saved_postings_path, {:controller => "saved_postings", :action => "create", :id => @posting.id} , :method=>:post%>
-
