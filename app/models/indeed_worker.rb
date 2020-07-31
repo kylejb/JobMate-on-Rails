@@ -1,29 +1,31 @@
 require 'selenium-webdriver'
 # require 'webdriver-user-agent'
+class IndeedWorker
 
-def rescue_exceptions
+  def rescue_exceptions
+      begin
+        yield
+      rescue Selenium::WebDriver::Error::NoSuchElementError
+        false
+      rescue Selenium::WebDriver::Error::StaleElementReferenceError
+        false
+      end
+  end
+
+  def run
+  #setup
+    driver = Selenium::WebDriver.for :chrome
+    wait = Selenium::WebDriver::Wait.new(:timeout => 1000)
+
+    #login flow
+
+
+    #form url that will be passed
+    apply_urls = ["https://indeed.com/pagead/clk?mo=r&ad=-6NYlbfkN0AGUMwYHCTVR_X2MgN4SXeYX14c_JDhoO_O4mb3K3QTCZzznso5xFyDDZLBeKYE_u604XRBVCy9LQWR9wW3hHRdNXN7BEhfx5H7cAJh7bpwkXw3F7Nm1otZuTIroWpATTyYzece4ij8IRq7msOkHkr5saL8eQ9cbS6J3Ysj-mjR7K6o39ORhDdOWVbdHrAPlSeUwir5mX9dVR5UlSXMujz7Xce7akV767AbOoVabHAv_rWU-yN7Gi8RMZZZ3sPblmCpaW4bLlHDuOl7VtGMlJUBBxmNewLmgAicn49o8vGZ6PZ2T9NYmxQ3csiktq-wYr2dfcLghVnO0zY0voQR7uOzny9KznKQD_C0GyY2jitknDUBTW9pV2AtPW9NapLFK_tsOb8xPu_8jDSwNIS9Vs8VZxLbYCmpQzAZJc9HqFso1BnlNZGLHH4bmKE33o8j3SZ5-jQIeJkDAfVq25-JgrO7&p=0&fvj=1&vjs=3" ]
+
+    # TODO- can this help web scraping tool to get us more data?
+
     begin
-      yield
-    rescue Selenium::WebDriver::Error::NoSuchElementError
-      false
-    rescue Selenium::WebDriver::Error::StaleElementReferenceError
-      false
-    end
-end
-
-#setup
-driver = Selenium::WebDriver.for :chrome
-wait = Selenium::WebDriver::Wait.new(:timeout => 1000)
-
-#login flow
-
-
-#form url that will be passed
-apply_urls = ["https://indeed.com/pagead/clk?mo=r&ad=-6NYlbfkN0AGUMwYHCTVR_X2MgN4SXeYX14c_JDhoO_O4mb3K3QTCZzznso5xFyDDZLBeKYE_u604XRBVCy9LQWR9wW3hHRdNXN7BEhfx5H7cAJh7bpwkXw3F7Nm1otZuTIroWpATTyYzece4ij8IRq7msOkHkr5saL8eQ9cbS6J3Ysj-mjR7K6o39ORhDdOWVbdHrAPlSeUwir5mX9dVR5UlSXMujz7Xce7akV767AbOoVabHAv_rWU-yN7Gi8RMZZZ3sPblmCpaW4bLlHDuOl7VtGMlJUBBxmNewLmgAicn49o8vGZ6PZ2T9NYmxQ3csiktq-wYr2dfcLghVnO0zY0voQR7uOzny9KznKQD_C0GyY2jitknDUBTW9pV2AtPW9NapLFK_tsOb8xPu_8jDSwNIS9Vs8VZxLbYCmpQzAZJc9HqFso1BnlNZGLHH4bmKE33o8j3SZ5-jQIeJkDAfVq25-JgrO7&p=0&fvj=1&vjs=3" ]
-
-# TODO- can this help web scraping tool to get us more data?
-
-begin
     driver.get 'https://secure.indeed.com/account/login'
     puts "Loading Indeed Sign-in Page..."
 
@@ -58,10 +60,10 @@ begin
         # driver.find_element(id: 'form-action-continue').submit
         # sleep 3
         # sleep 60
-        puts "hey we on line 55"
+        # ia-ApplyFormScreen
     end
-
-    # ia-ApplyFormScreen
-ensure
-    driver.quit
+    ensure
+      driver.quit
+    end
+  end
 end
