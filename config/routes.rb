@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   get '/signup', to: 'users#new', as: 'new_user'
   post '/signup', to: 'users#create'
+  patch '/signup', to: 'users#update'
 
   #this path lets a user add/edit categories
   # get '/categories/choose', to: "user_categories#choose_categories", as: "choose_categories"
@@ -26,5 +27,5 @@ Rails.application.routes.draw do
   resources :companies, only: [:show, :index]
   resources :saved_postings, only: [:show, :index, :create]
   resources :postings, only: [:index, :show, :destroy]
-  resources :users, except: [:index, :new, :create]
+  resources :users, except: [:index, :new, :update, :create]
 end
