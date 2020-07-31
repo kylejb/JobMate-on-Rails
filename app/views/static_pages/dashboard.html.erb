@@ -15,7 +15,9 @@
         <%= button_to 'Postings', saved_postings_path, method: :get %>
 </ul>
 
-<p>Dashboard: (PLACEHOLDER) </p>
+<h3>JobMate</h3>
+
+<%= render 'stats' %>
 
 <p>Logout:</p>
   <%= form_tag delete_session_path, ({controller: 'sessions', action: 'destroy', method: 'delete'}) do %>

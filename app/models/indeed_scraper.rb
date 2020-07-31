@@ -21,7 +21,7 @@ class IndeedScraper < Kimurai::Base
        num = 1
        #visit next page and scrape it
        # TODO - make this run until end
-       2.times do
+       30.times do
            browser.visit("https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY&sort=date&fromage=14&start=#{num}0")
            puts "Parsing jobs on page number: #{num}"
            scrape_page
@@ -47,6 +47,7 @@ class IndeedScraper < Kimurai::Base
                 # Model Validaton Implemented
                 company_obj = Company.find_or_create_by(name: company)
                 # click on link and extract description, salary, and location
+                sleep rand(1..4)
                 browser.visit(link)
                 job_page = browser.current_response
                 description = job_page.xpath('/html/body/div[1]/div[1]/div[3]/div/div/div[1]/div[1]/div[5]/div[2]').text
