@@ -1,4 +1,4 @@
-# "JOBS" (temp title)
+# JobMate
 
 A tool to help simplify the job hunt process.
 
