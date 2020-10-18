@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.2'
 
 # Set minimium version to 6.0.3.3 to patch for potential XSS vulnerability
 gem 'actionview', '>= 6.0.3.3'
@@ -36,8 +36,6 @@ gem 'jquery-rails'
 
 # Used to generate sample User data in db:seed 
 gem 'faker'
-# Use Font Awesome Less to add fonts to css stylesheets
-# gem 'font-awesome-less'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
