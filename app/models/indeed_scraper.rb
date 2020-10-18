@@ -76,6 +76,3 @@ class IndeedScraper < Kimurai::Base
 end
 
 IndeedScraper.crawl!
-
-
-# Special thanks to 'https://www.scrapingbee.com/blog/web-scraping-ruby/#kimurai-setup' for code/guidance.
