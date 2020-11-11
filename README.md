@@ -7,7 +7,7 @@
 
 <div align="center">
 
-  [![Status](https://img.shields.io/badge/status-active-success.svg)]() 
+  [![Status](https://img.shields.io/badge/status-inactive-inactive.svg)]() 
   [![GitHub Issues](https://img.shields.io/github/issues/kylejb/JobMate)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
   [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylejb/JobMate)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
   [![License](https://img.shields.io/github/license/kylejb/JobMate?style=plastic)](/LICENSE)
@@ -30,7 +30,8 @@
 - [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
-Write about 1-2 paragraphs describing the purpose of your project.
+
+This project is migrating to [JobMate-on-Django](https://github.com/kylejb/JobMate-on-Django).
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -87,9 +88,6 @@ rails app:indeed_scraper
 ```
 rails s
 ```
-
-## 🎈 Usage <a name="usage"></a>
-*PLACEHOLDER*
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [SQLite3](https://sqlite.org) - Database
