@@ -7,9 +7,7 @@
 
 <div align="center">
 
-  [![Status](https://img.shields.io/badge/status-inactive-inactive.svg)]() 
-  [![GitHub Issues](https://img.shields.io/github/issues/kylejb/JobMate)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-  [![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylejb/JobMate)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+  [![Status](https://img.shields.io/badge/status-inactive-inactive.svg)]()
   [![License](https://img.shields.io/github/license/kylejb/JobMate?style=plastic)](/LICENSE)
 
 </div>
