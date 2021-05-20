@@ -8,14 +8,13 @@
 <div align="center">
 
   [![Status](https://img.shields.io/badge/status-inactive-inactive.svg)]()
-  [![License](https://img.shields.io/github/license/kylejb/JobMate?style=plastic)](/LICENSE)
-
+  [![License](https://img.shields.io/github/license/kylejb/JobMate-on-Rails?style=plastic)](LICENSE)
 </div>
 
 ---
 
 <p align="center"> A better way to find and apply to jobs.
-    <br> 
+    <br>
 </p>
 
 ## 📝 Table of Contents
@@ -29,7 +28,7 @@
 
 ## 🧐 About <a name = "about"></a>
 
-This project is migrating to [JobMate-on-Django](https://github.com/kylejb/JobMate-on-Django).
+This project is migrating to [JobMate](https://github.com/kylejb/JobMate).
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -89,7 +88,7 @@ rails s
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [SQLite3](https://sqlite.org) - Database
-- [Ruby on Rails](https://rubyonrails.org/) - Server and Web Framework 
+- [Ruby on Rails](https://rubyonrails.org/) - Server and Web Framework
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@kylejb](https://github.com/kylejb)
